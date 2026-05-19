@@ -9,29 +9,145 @@ function getData() {
     .then((data) => {
       /// EXAM: COMPLÉTEZ LE CODE ICI !
       console.log(data);
-      
-
       // TODO 1: REMPLIR LE HEADER
-
+      let nomJournalHTML=document.getElementById("nom-journal");
+      let phraseAccrocheHTML=document.getElementById("phrase-accroche");
+      let nom=data.journal.nomJournal;
+      let phrase=data.journal.phraseAccroche;
+      nomJournalHTML.insertAdjacentHTML("beforeend",nom);
+      phraseAccrocheHTML.insertAdjacentHTML("beforeend",phrase);
       // TODO 2: REMPLIR LA NAVIGATION
-
+      let themesNav=document.getElementById("themes-nav");
+      let themes=data.journal.themes;
+      let buttonAll=`<button class="nav-theme-btn active">Tous</button>`
+      // FONCTION POUR CREER LES BOUTONS AUTOMATIQUEMENT
+      function creerBoutonTheme(theme){
+        let buttonThemes=`<button class="nav-theme-btn">${theme.nom}</button>`
+        themesNav.insertAdjacentHTML("beforeend", buttonThemes);
+      };
+      // AFFICHAGE
+      themesNav.insertAdjacentHTML("beforeend", buttonAll);
+      themes.forEach(element => {
+        creerBoutonTheme(element);
+      });
       // TODO 3: REMPLIR L'ARTICLE PRINCIPAL
-
+      let articlePrincipalHTML=document.getElementById("article-principal");
+      let titre=data.journal.articlePrincipal.titre;
+      let date=data.journal.articlePrincipal.date;
+      let description=data.journal.articlePrincipal.description;
+      let image=data.journal.articlePrincipal.image;
+      let badgeTheme=data.journal.articlePrincipal.theme;
+      // AFFICHAGE
+      let articlePrincipal=`
+      <img src="${image}" alt="" id="hero-image">
+      <div class="hero-info">
+        <button class="theme-badge">${badgeTheme}</button>
+        <h1 id="hero-titre">${titre}</h1>
+        <p id="hero-description">${description}</p>
+        <p class="date">${date}</p>
+      </div>
+      `
+      articlePrincipalHTML.insertAdjacentHTML("beforeend", articlePrincipal);
+      
       // TODO 4: REMPLIR LA GRILLE D'ARTICLES
-
+      let articles=data.journal.articles;
+      let articlesGrid=document.getElementById("articles-grid");
+      function creerArticle(flan){
+        let article=`
+        <div class="article-card">
+          <img src="${flan.image}" alt="${flan.titre}">
+          <div class="article-content">
+            <button class="theme-badge">${flan.theme}</button>
+            <h3>${flan.titre}</h3>
+            <h4>Rating: ${flan.popularite}</h4>
+            <p>${flan.date}</p>
+          </div>
+        </div>
+        `;
+        articlesGrid.insertAdjacentHTML("beforeend", article);
+      }
+      articles.forEach(article => {
+        creerArticle(article);
+      });
       // TODO 5: REMPLIR LES THEMES
-
+      let themesList=document.getElementById("themes-list");
+      // THEME DEJA INITIALISE EN HAUT
+      function afficherThemes(theme){
+        let nom=theme.nom;
+        let description=theme.description;
+        let articleTheme=`
+        <div class="theme-item">
+          <h3>${nom}</h3>
+          <p>${description}</p>
+        </div>
+        `
+        themesList.insertAdjacentHTML("beforeend", articleTheme);
+      }
+      // AFFICHAGE
+      themes.forEach(element => {
+        afficherThemes(element);
+      });
       // TODO 6: REMPLIR LES AUTEURS
-
+      let authorsList=document.getElementById("authors-list");
+      let auteurs=data.journal.auteurs;
+      function afficherAuteurs(auteur){
+        let carteAuteur=`
+        <div class="author-card">
+          <img src="${auteur.photo}" alt="Présentation de ${auteur.prenom}, ${auteur.presentation}" class="author-image">
+          <h3>${auteur.prenom}</h3>
+          <h3 class="author-role">${auteur.typeExperience}</h3>
+          <p class="author-bio">${auteur.presentation}</p>
+        </div>
+        `
+        authorsList.insertAdjacentHTML("beforeend", carteAuteur);
+      }
+      auteurs.forEach(nomAuteur => {
+        afficherAuteurs(nomAuteur);
+      });
       // TODO 7: REMPLIR LE CALL TO ACTION
-
+      let callToAction=document.getElementById("call-to-action");
+      let callToActionText=data.journal.texteAppelAction;
+      let AppelAAction=`
+      <p>${callToActionText}</p>
+      <button class="cta-button">S'abonner</button>
+      `
+      callToAction.insertAdjacentHTML("beforeend", AppelAAction);
       /// FIN DU CODE
-
       // BONUS 1 : Alert sur le bouton CTA
-
+      let ctaButton=document.querySelector(".cta-button");
+      ctaButton.addEventListener("click", function(){
+        alert("Vous serez à présent notifié(e) des nouvelles recettes publiées!");
+      })
       // BONUS 2 : Filtrage par thème
-
+      
       // BONUS 3 : Tri par popularité
+      // DECLARATION + AFFICHAGE DES BOUTONS
+      let buttonFilterDefault=`<button class="read-btn" id="filter-default">Par défaut</button>`;
+      let buttonFilterPopularity=`<button class="read-btn" id="filter-popularity">Par popularité</button>`;
+      articlesGrid.insertAdjacentHTML("beforebegin", buttonFilterDefault);
+      articlesGrid.insertAdjacentHTML("beforebegin", buttonFilterPopularity);
+      // FONCTIONS PAR DEFAUT ET PAR POPULARITE
+      function trierArticlesPopularity(tableauArticles){
+        articlesGrid.innerHTML=" "
+        articlesTriesPopularity=tableauArticles.sort((a, b) => b.popularite - a.popularite);
+        articlesTriesPopularity.forEach(article => {
+          creerArticle(article);
+        });  
+      }
+      function trierArticlesDefault(tableauArticles){
+        articlesGrid.innerHTML=" "
+        tableauArticles.forEach(article => {
+          creerArticle(article);
+        });  
+      }
+      let filterPopularity=document.getElementById("filter-popularity");
+      let filterDefault=document.getElementById("filter-default");
+      filterDefault.addEventListener("click", function(){
+        trierArticlesDefault(articles);
+      })
+      filterPopularity.addEventListener("click", function(){
+        trierArticlesPopularity(articles);
+      })
     })
     .catch((error) => console.error('Erreur lors de la lecture des données :', error));
 }

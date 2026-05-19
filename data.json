@@ -1,0 +1,98 @@
+{
+  "journal": {
+    "nomJournal": "Flanorama",
+    "logo": "assets/images/logo.svg",
+    "phraseAccroche": "Le tour du monde des flans, de la tradition à l'innovation",
+    "texteAppelAction": "Abonnez-vous pour découvrir les secrets des flans d'ici et d'ailleurs",
+    "articlePrincipal": {
+      "titre": "Flan pâtissier : la recette traditionnelle française",
+      "description": "Découvrez la recette classique du flan pâtissier, un dessert incontournable des boulangeries françaises.",
+      "date": "20 Mai 2025",
+      "theme": "Traditions",
+      "image": "assets/images/image1.png"
+    },
+    "articles": [
+      {
+        "titre": "Flan espagnol : le dessert caramelisé par excellence",
+        "date": "15 Mai 2025",
+        "theme": "International",
+        "image": "assets/images/image2.png",
+        "popularite": 59
+      },
+      {
+        "titre": "Flan coco des Antilles : une touche exotique",
+        "date": "10 Mai 2025",
+        "theme": "Saveurs du monde",
+        "image": "assets/images/image3.jpg",
+        "popularite": 13
+      },
+      {
+        "titre": "Flan vanille : la recette de Marie Debié et Augustin Rivoire",
+        "date": "5 Mai 2025",
+        "theme": "Chefs en cuisine",
+        "image": "assets/images/image4.jpg",
+        "popularite": 49
+      },
+      {
+        "titre": "Flan aux asperges : une version salée surprenante",
+        "date": "1er Mai 2025",
+        "theme": "Innovations",
+        "image": "assets/images/image2.png",
+        "popularite": 98
+      },
+      {
+        "titre": "Les meilleures adresses pour déguster un flan à Paris",
+        "date": "25 Avril 2025",
+        "theme": "Gourmandises",
+        "image": "assets/images/image3.jpg",
+        "popularite": 83
+      }
+    ],
+    "themes": [
+      {
+        "nom": "Traditions",
+        "description": "Les recettes classiques de flans à travers les cultures."
+      },
+      {
+        "nom": "International",
+        "description": "Les flans emblématiques des différentes régions du monde."
+      },
+      {
+        "nom": "Saveurs du monde",
+        "description": "Les variations exotiques et originales du flan."
+      },
+      {
+        "nom": "Chefs en cuisine",
+        "description": "Les interprétations des grands chefs autour du flan."
+      },
+      {
+        "nom": "Innovations",
+        "description": "Les nouvelles tendances et versions salées du flan."
+      },
+      {
+        "nom": "Gourmandises",
+        "description": "Les meilleures adresses pour savourer un flan d'exception."
+      }
+    ],
+    "auteurs": [
+      {
+        "prenom": "Claire",
+        "typeExperience": "Pâtissière",
+        "presentation": "Passionnée par les desserts traditionnels, je partage mes recettes et astuces pour réussir vos flans maison.",
+        "photo": "assets/images/image2.png"
+      },
+      {
+        "prenom": "Thomas",
+        "typeExperience": "Critique culinaire",
+        "presentation": "Je parcours les boulangeries et pâtisseries pour dénicher les meilleurs flans et vous faire découvrir leurs secrets.",
+        "photo": "assets/images/image3.jpg"
+      },
+      {
+        "prenom": "Elena",
+        "typeExperience": "Chef cuisinière",
+        "presentation": "J'aime revisiter les classiques en y apportant une touche d'originalité, comme le flan aux asperges ou au fromage.",
+        "photo": "assets/images/image4.jpg"
+      }
+    ]
+  }
+}
