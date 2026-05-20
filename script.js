@@ -19,7 +19,8 @@ function getData() {
       // TODO 2: REMPLIR LA NAVIGATION
       let themesNav=document.getElementById("themes-nav");
       let themes=data.journal.themes;
-      let buttonAll=`<button class="nav-theme-btn active">Tous</button>`
+      let buttonAll=`<button class="nav-theme-btn active">Tous</button>`;
+
       // FONCTION POUR CREER LES BOUTONS AUTOMATIQUEMENT
       function creerBoutonTheme(theme){
         let buttonThemes=`<button class="nav-theme-btn">${theme.nom}</button>`
@@ -27,6 +28,7 @@ function getData() {
       };
       // AFFICHAGE
       themesNav.insertAdjacentHTML("beforeend", buttonAll);
+      let articlesGrid=document.getElementById("articles-grid");
       themes.forEach(element => {
         creerBoutonTheme(element);
       });
@@ -41,7 +43,7 @@ function getData() {
       let articlePrincipal=`
       <img src="${image}" alt="" id="hero-image">
       <div class="hero-info">
-        <button class="theme-badge">${badgeTheme}</button>
+        <span class="theme-badge">${badgeTheme}</span>
         <h1 id="hero-titre">${titre}</h1>
         <p id="hero-description">${description}</p>
         <p class="date">${date}</p>
@@ -51,13 +53,12 @@ function getData() {
       
       // TODO 4: REMPLIR LA GRILLE D'ARTICLES
       let articles=data.journal.articles;
-      let articlesGrid=document.getElementById("articles-grid");
       function creerArticle(flan){
         let article=`
         <div class="article-card">
           <img src="${flan.image}" alt="${flan.titre}">
           <div class="article-content">
-            <button class="theme-badge">${flan.theme}</button>
+            <span class="theme-badge">${flan.theme}</span>
             <h3>${flan.titre}</h3>
             <h4>Rating: ${flan.popularite}</h4>
             <p>${flan.date}</p>
@@ -119,7 +120,26 @@ function getData() {
         alert("Vous serez à présent notifié(e) des nouvelles recettes publiées!");
       })
       // BONUS 2 : Filtrage par thème
-      
+      let navThemeBtn=document.querySelectorAll(".nav-theme-btn");
+      function filterButtons(button){
+        button.addEventListener("click", function(){
+          let nomTheme = button.textContent;
+          articlesGrid.innerHTML=" "
+          if (nomTheme==="Tous"){
+            articles.forEach(article => {
+              creerArticle(article)
+            });
+          }else{
+            let articlesFiltres = articles.filter(button => nomTheme === button.theme);
+            articlesFiltres.forEach(article => {
+              creerArticle(article)
+            });
+          }
+        })
+      };
+      navThemeBtn.forEach(button => {
+        filterButtons(button);
+      });
       // BONUS 3 : Tri par popularité
       // DECLARATION + AFFICHAGE DES BOUTONS
       let buttonFilterDefault=`<button class="read-btn" id="filter-default">Par défaut</button>`;
@@ -127,16 +147,18 @@ function getData() {
       articlesGrid.insertAdjacentHTML("beforebegin", buttonFilterDefault);
       articlesGrid.insertAdjacentHTML("beforebegin", buttonFilterPopularity);
       // FONCTIONS PAR DEFAUT ET PAR POPULARITE
+      // TABLEAU RECENSANT LETAT INITIAL DE JOURNAL.ARTICLES
+      let articlesOriginaux=articles.slice(); 
       function trierArticlesPopularity(tableauArticles){
         articlesGrid.innerHTML=" "
-        articlesTriesPopularity=tableauArticles.sort((a, b) => b.popularite - a.popularite);
+        let articlesTriesPopularity=tableauArticles.sort((a, b) => b.popularite - a.popularite);
         articlesTriesPopularity.forEach(article => {
           creerArticle(article);
         });  
       }
       function trierArticlesDefault(tableauArticles){
         articlesGrid.innerHTML=" "
-        tableauArticles.forEach(article => {
+        articlesOriginaux.forEach(article => {
           creerArticle(article);
         });  
       }

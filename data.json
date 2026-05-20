@@ -9,45 +9,122 @@
       "description": "Découvrez la recette classique du flan pâtissier, un dessert incontournable des boulangeries françaises.",
       "date": "20 Mai 2025",
       "theme": "Traditions",
-      "image": "assets/images/image1.png"
+      "image": "assets/images/flan27.jpg"
     },
     "articles": [
       {
         "titre": "Flan espagnol : le dessert caramelisé par excellence",
         "date": "15 Mai 2025",
         "theme": "International",
-        "image": "assets/images/image2.png",
+        "image": "assets/images/flan15.avif",
         "popularite": 59
       },
       {
         "titre": "Flan coco des Antilles : une touche exotique",
         "date": "10 Mai 2025",
         "theme": "Saveurs du monde",
-        "image": "assets/images/image3.jpg",
+        "image": "assets/images/flan7.avif",
         "popularite": 13
       },
       {
         "titre": "Flan vanille : la recette de Marie Debié et Augustin Rivoire",
         "date": "5 Mai 2025",
         "theme": "Chefs en cuisine",
-        "image": "assets/images/image4.jpg",
+        "image": "assets/images/flan5.avif",
         "popularite": 49
       },
       {
         "titre": "Flan aux asperges : une version salée surprenante",
         "date": "1er Mai 2025",
         "theme": "Innovations",
-        "image": "assets/images/image2.png",
+        "image": "assets/images/flan12.avif",
         "popularite": 98
       },
       {
         "titre": "Les meilleures adresses pour déguster un flan à Paris",
         "date": "25 Avril 2025",
         "theme": "Gourmandises",
-        "image": "assets/images/image3.jpg",
+        "image": "assets/images/flan10.avif",
         "popularite": 83
+      },
+      {
+        "titre": "Flan pâtissier au chocolat noir : intense et fondant",
+        "date": "20 Mai 2025",
+        "theme": "Pâtisserie",
+        "image": "assets/images/flan19.avif",
+        "popularite": 74
+      },
+      {
+        "titre": "Flan pistache-framboise : l’alliance gourmande du printemps",
+        "date": "18 Mai 2025",
+        "theme": "Créations originales",
+        "image": "assets/images/flan18.avif",
+        "popularite": 66
+      },
+      {
+        "titre": "Le flan basque revisité par les jeunes chefs",
+        "date": "14 Mai 2025",
+        "theme": "Traditions revisitées",
+        "image": "assets/images/flan17.avif",
+        "popularite": 52
+      },
+      {
+        "titre": "Flan citron meringué : fraîcheur et douceur réunies",
+        "date": "12 Mai 2025",
+        "theme": "Desserts créatifs",
+        "image": "assets/images/flan16.avif",
+        "popularite": 61
+      },
+      {
+        "titre": "Pourquoi le flan parisien revient à la mode en 2025",
+        "date": "8 Mai 2025",
+        "theme": "Tendances culinaires",
+        "image": "assets/images/flan24.avif",
+        "popularite": 91
+      },
+      {
+        "titre": "Flan sans lactose : une recette légère et savoureuse",
+        "date": "4 Mai 2025",
+        "theme": "Cuisine healthy",
+        "image": "assets/images/flan22.jpg",
+        "popularite": 47
+      },
+      {
+        "titre": "Le secret d’un flan ultra crémeux selon les boulangers",
+        "date": "30 Avril 2025",
+        "theme": "Conseils de pros",
+        "image": "assets/images/flan23.avif",
+        "popularite": 88
+      },
+      {
+        "titre": "Flan praliné noisette : la recette qui fait sensation",
+        "date": "27 Avril 2025",
+        "theme": "Gourmandises",
+        "image": "assets/images/flan26.jpg",
+        "popularite": 79
+      },
+      {
+        "titre": "Les flans japonais qui séduisent les amateurs de desserts",
+        "date": "22 Avril 2025",
+        "theme": "Saveurs du monde",
+        "image": "assets/images/flan20.avif",
+        "popularite": 58
+      },
+      {
+        "titre": "Flan à la fleur d’oranger : une douceur méditerranéenne",
+        "date": "18 Avril 2025",
+        "theme": "International",
+        "image": "assets/images/flan8.avif",
+        "popularite": 42
+      },
+      {
+        "titre": "Les recettes classiques de flans à travers les cultures",
+        "date": "4 avril 2025",
+        "theme": "Traditions",
+        "image": "assets/images/flan14.avif",
+        "popularite": 98
       }
-    ],
+  ],
     "themes": [
       {
         "nom": "Traditions",
@@ -72,6 +149,34 @@
       {
         "nom": "Gourmandises",
         "description": "Les meilleures adresses pour savourer un flan d'exception."
+      },
+      {
+        "nom": "Pâtisserie",
+        "description": "Les grands classiques et créations gourmandes autour des flans sucrés."
+      },
+      {
+        "nom": "Créations originales",
+        "description": "Des associations inédites de saveurs et des recettes modernes de flans."
+      },
+      {
+        "nom": "Traditions revisitées",
+        "description": "Les recettes régionales et historiques de flans modernisées par les chefs."
+      },
+      {
+        "nom": "Desserts créatifs",
+        "description": "Des flans inspirés des desserts célèbres et des tendances pâtissières."
+      },
+      {
+        "nom": "Tendances culinaires",
+        "description": "Les nouveautés, phénomènes et modes autour du flan et de la pâtisserie."
+      },
+      {
+        "nom": "Cuisine healthy",
+        "description": "Des recettes de flans plus légères, équilibrées ou adaptées aux régimes spécifiques."
+      },
+      {
+        "nom": "Conseils de pros",
+        "description": "Les astuces, techniques et secrets de chefs pour réussir des flans parfaits."
       }
     ],
     "auteurs": [
@@ -79,19 +184,19 @@
         "prenom": "Claire",
         "typeExperience": "Pâtissière",
         "presentation": "Passionnée par les desserts traditionnels, je partage mes recettes et astuces pour réussir vos flans maison.",
-        "photo": "assets/images/image2.png"
+        "photo": "assets/images/doggo.jpg"
       },
       {
         "prenom": "Thomas",
         "typeExperience": "Critique culinaire",
         "presentation": "Je parcours les boulangeries et pâtisseries pour dénicher les meilleurs flans et vous faire découvrir leurs secrets.",
-        "photo": "assets/images/image3.jpg"
+        "photo": "assets/images/seal.jpg"
       },
       {
         "prenom": "Elena",
         "typeExperience": "Chef cuisinière",
         "presentation": "J'aime revisiter les classiques en y apportant une touche d'originalité, comme le flan aux asperges ou au fromage.",
-        "photo": "assets/images/image4.jpg"
+        "photo": "assets/images/bunny.jpg"
       }
     ]
   }
