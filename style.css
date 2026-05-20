@@ -385,7 +385,7 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
 }
 
 .swiper-slide {
-  display: flex;
+  display: flex !important;;
   justify-content: center;
   align-items: center;
 }
