@@ -194,37 +194,37 @@
         "prenom": "Lucas",
         "typeExperience": "Pâtissier",
         "presentation": "Je revisite les grands classiques de la pâtisserie française avec des saveurs modernes comme la framboise-tonka ou le caramel au beurre salé.",
-        "photo": "assets/images/doggo.jpg"
+        "photo": "assets/images/doggo2.jpg"
       },
       {
         "prenom": "Camille",
         "typeExperience": "Cake designer",
         "presentation": "J’adore créer des gâteaux aussi beaux que gourmands pour les anniversaires, mariages et événements spéciaux.",
-        "photo": "assets/images/doggo.jpg"
+        "photo": "assets/images/hamster.jpg"
       },
       {
         "prenom": "Sofia",
         "typeExperience": "Spécialiste des desserts glacés",
         "presentation": "Je prépare des glaces artisanales et des sorbets originaux avec des fruits frais et des associations surprenantes.",
-        "photo": "assets/images/doggo.jpg"
+        "photo": "assets/images/piggy.jpg"
       },
       {
         "prenom": "Yanis",
         "typeExperience": "Chocolatier",
         "presentation": "Le chocolat est ma passion. Je crée des douceurs gourmandes mêlant textures croquantes et cœurs fondants.",
-        "photo": "assets/images/doggo.jpg"
+        "photo": "assets/images/hedgehoggy.jpg"
       },
       {
         "prenom": "Lina",
         "typeExperience": "Créatrice de macarons",
         "presentation": "Je compose des macarons colorés et délicats avec des parfums uniques comme violette, pistache ou mangue-passion.",
-        "photo": "assets/images/doggo.jpg"
+        "photo": "assets/images/deer.jpg"
       },
       {
         "prenom": "Emma",
         "typeExperience": "Experte en desserts vegan",
         "presentation": "Je propose des desserts gourmands sans produits d’origine animale, sans compromis sur le goût ni la créativité.",
-        "photo": "assets/images/seal.jpg"
+        "photo": "assets/images/penguinny.jpg"
       }
     ]
   }
