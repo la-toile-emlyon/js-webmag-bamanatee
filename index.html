@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Webmag</title>
    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 </head>
+
 <body>
-   
+
    <!-- HEADER -->
    <header class="header">
       <div class="container">
@@ -55,8 +58,13 @@
       <div class="container">
          <h2 class="section-title">Nos Auteurs</h2>
          <div id="authors-list" class="authors-list">
+            <div class="swiper">
+               <div class="swiper-wrapper"></div>
+               <div class="swiper-pagination"></div>
+               <div class="swiper-button-prev"></div>
+               <div class="swiper-button-next"></div>
+            </div>
          </div>
-      </div>
    </section>
 
    <section class="cta-section">
@@ -72,7 +80,8 @@
          <p>&copy; 2026 Webmag. Tous droits réservés.</p>
       </div>
    </footer>
-
+   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
    <script src="script.js"></script>
 </body>
+
 </html>

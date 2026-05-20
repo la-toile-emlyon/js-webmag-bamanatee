@@ -13,41 +13,6 @@
     },
     "articles": [
       {
-        "titre": "Flan espagnol : le dessert caramelisé par excellence",
-        "date": "15 Mai 2025",
-        "theme": "International",
-        "image": "assets/images/flan15.avif",
-        "popularite": 59
-      },
-      {
-        "titre": "Flan coco des Antilles : une touche exotique",
-        "date": "10 Mai 2025",
-        "theme": "Saveurs du monde",
-        "image": "assets/images/flan7.avif",
-        "popularite": 13
-      },
-      {
-        "titre": "Flan vanille : la recette de Marie Debié et Augustin Rivoire",
-        "date": "5 Mai 2025",
-        "theme": "Chefs en cuisine",
-        "image": "assets/images/flan5.avif",
-        "popularite": 49
-      },
-      {
-        "titre": "Flan aux asperges : une version salée surprenante",
-        "date": "1er Mai 2025",
-        "theme": "Innovations",
-        "image": "assets/images/flan12.avif",
-        "popularite": 98
-      },
-      {
-        "titre": "Les meilleures adresses pour déguster un flan à Paris",
-        "date": "25 Avril 2025",
-        "theme": "Gourmandises",
-        "image": "assets/images/flan10.avif",
-        "popularite": 83
-      },
-      {
         "titre": "Flan pâtissier au chocolat noir : intense et fondant",
         "date": "20 Mai 2025",
         "theme": "Pâtisserie",
@@ -62,6 +27,13 @@
         "popularite": 66
       },
       {
+        "titre": "Flan espagnol : le dessert caramelisé par excellence",
+        "date": "15 Mai 2025",
+        "theme": "International",
+        "image": "assets/images/flan15.avif",
+        "popularite": 59
+      },
+      {
         "titre": "Le flan basque revisité par les jeunes chefs",
         "date": "14 Mai 2025",
         "theme": "Traditions revisitées",
@@ -71,9 +43,16 @@
       {
         "titre": "Flan citron meringué : fraîcheur et douceur réunies",
         "date": "12 Mai 2025",
-        "theme": "Desserts créatifs",
+        "theme": "Créations originales",
         "image": "assets/images/flan16.avif",
         "popularite": 61
+      },
+      {
+        "titre": "Flan coco des Antilles : une touche exotique",
+        "date": "10 Mai 2025",
+        "theme": "Saveurs du monde",
+        "image": "assets/images/flan7.avif",
+        "popularite": 13
       },
       {
         "titre": "Pourquoi le flan parisien revient à la mode en 2025",
@@ -83,11 +62,25 @@
         "popularite": 91
       },
       {
+        "titre": "Flan vanille : la recette de Marie Debié et Augustin Rivoire",
+        "date": "5 Mai 2025",
+        "theme": "Chefs en cuisine",
+        "image": "assets/images/flan5.avif",
+        "popularite": 49
+      },
+      {
         "titre": "Flan sans lactose : une recette légère et savoureuse",
         "date": "4 Mai 2025",
         "theme": "Cuisine healthy",
         "image": "assets/images/flan22.jpg",
         "popularite": 47
+      },
+      {
+        "titre": "Flan aux asperges : une version salée surprenante",
+        "date": "1er Mai 2025",
+        "theme": "Créations originales",
+        "image": "assets/images/flan12.avif",
+        "popularite": 98
       },
       {
         "titre": "Le secret d’un flan ultra crémeux selon les boulangers",
@@ -99,9 +92,16 @@
       {
         "titre": "Flan praliné noisette : la recette qui fait sensation",
         "date": "27 Avril 2025",
-        "theme": "Gourmandises",
+        "theme": "Tendances culinaires",
         "image": "assets/images/flan26.jpg",
         "popularite": 79
+      },
+      {
+        "titre": "Les meilleures adresses pour déguster un flan à Paris",
+        "date": "25 Avril 2025",
+        "theme": "Gourmandises",
+        "image": "assets/images/flan10.avif",
+        "popularite": 83
       },
       {
         "titre": "Les flans japonais qui séduisent les amateurs de desserts",
@@ -143,10 +143,6 @@
         "description": "Les interprétations des grands chefs autour du flan."
       },
       {
-        "nom": "Innovations",
-        "description": "Les nouvelles tendances et versions salées du flan."
-      },
-      {
         "nom": "Gourmandises",
         "description": "Les meilleures adresses pour savourer un flan d'exception."
       },
@@ -161,10 +157,6 @@
       {
         "nom": "Traditions revisitées",
         "description": "Les recettes régionales et historiques de flans modernisées par les chefs."
-      },
-      {
-        "nom": "Desserts créatifs",
-        "description": "Des flans inspirés des desserts célèbres et des tendances pâtissières."
       },
       {
         "nom": "Tendances culinaires",
@@ -197,6 +189,42 @@
         "typeExperience": "Chef cuisinière",
         "presentation": "J'aime revisiter les classiques en y apportant une touche d'originalité, comme le flan aux asperges ou au fromage.",
         "photo": "assets/images/bunny.jpg"
+      },
+      {
+        "prenom": "Lucas",
+        "typeExperience": "Pâtissier",
+        "presentation": "Je revisite les grands classiques de la pâtisserie française avec des saveurs modernes comme la framboise-tonka ou le caramel au beurre salé.",
+        "photo": "assets/images/doggo.jpg"
+      },
+      {
+        "prenom": "Camille",
+        "typeExperience": "Cake designer",
+        "presentation": "J’adore créer des gâteaux aussi beaux que gourmands pour les anniversaires, mariages et événements spéciaux.",
+        "photo": "assets/images/doggo.jpg"
+      },
+      {
+        "prenom": "Sofia",
+        "typeExperience": "Spécialiste des desserts glacés",
+        "presentation": "Je prépare des glaces artisanales et des sorbets originaux avec des fruits frais et des associations surprenantes.",
+        "photo": "assets/images/doggo.jpg"
+      },
+      {
+        "prenom": "Yanis",
+        "typeExperience": "Chocolatier",
+        "presentation": "Le chocolat est ma passion. Je crée des douceurs gourmandes mêlant textures croquantes et cœurs fondants.",
+        "photo": "assets/images/doggo.jpg"
+      },
+      {
+        "prenom": "Lina",
+        "typeExperience": "Créatrice de macarons",
+        "presentation": "Je compose des macarons colorés et délicats avec des parfums uniques comme violette, pistache ou mangue-passion.",
+        "photo": "assets/images/doggo.jpg"
+      },
+      {
+        "prenom": "Emma",
+        "typeExperience": "Experte en desserts vegan",
+        "presentation": "Je propose des desserts gourmands sans produits d’origine animale, sans compromis sur le goût ni la créativité.",
+        "photo": "assets/images/seal.jpg"
       }
     ]
   }

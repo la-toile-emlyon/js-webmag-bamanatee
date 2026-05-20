@@ -1,3 +1,4 @@
+const apiURL='';
 function getData() {
   fetch('data.json')
     .then((response) => {
@@ -60,7 +61,7 @@ function getData() {
           <div class="article-content">
             <span class="theme-badge">${flan.theme}</span>
             <h3>${flan.titre}</h3>
-            <h4>Rating: ${flan.popularite}</h4>
+            <h4>Avis: ${flan.popularite}</h4>
             <p>${flan.date}</p>
           </div>
         </div>
@@ -85,26 +86,43 @@ function getData() {
         themesList.insertAdjacentHTML("beforeend", articleTheme);
       }
       // AFFICHAGE
-      themes.forEach(element => {
-        afficherThemes(element);
+      themes.forEach(theme => {
+        afficherThemes(theme);
       });
       // TODO 6: REMPLIR LES AUTEURS
-      let authorsList=document.getElementById("authors-list");
+      let swiperWrapper=document.querySelector(".swiper-wrapper");
       let auteurs=data.journal.auteurs;
       function afficherAuteurs(auteur){
         let carteAuteur=`
-        <div class="author-card">
-          <img src="${auteur.photo}" alt="Présentation de ${auteur.prenom}, ${auteur.presentation}" class="author-image">
-          <h3>${auteur.prenom}</h3>
-          <h3 class="author-role">${auteur.typeExperience}</h3>
-          <p class="author-bio">${auteur.presentation}</p>
+        <div class="swiper-slide">
+          <div class="author-card">
+            <img src="${auteur.photo}" alt="Présentation de ${auteur.prenom}, ${auteur.presentation}" class="author-image">
+            <h3>${auteur.prenom}</h3>
+            <h3 class="author-role">${auteur.typeExperience}</h3>
+            <p class="author-bio">${auteur.presentation}</p>
+          </div>
         </div>
         `
-        authorsList.insertAdjacentHTML("beforeend", carteAuteur);
+        swiperWrapper.insertAdjacentHTML("beforeend", carteAuteur);
       }
       auteurs.forEach(nomAuteur => {
         afficherAuteurs(nomAuteur);
       });
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+      
       // TODO 7: REMPLIR LE CALL TO ACTION
       let callToAction=document.getElementById("call-to-action");
       let callToActionText=data.journal.texteAppelAction;
@@ -117,7 +135,7 @@ function getData() {
       // BONUS 1 : Alert sur le bouton CTA
       let ctaButton=document.querySelector(".cta-button");
       ctaButton.addEventListener("click", function(){
-        alert("Vous serez à présent notifié(e) des nouvelles recettes publiées!");
+        alert("Vous serez à présent notifié(e) de toutes nos actualités!");
       })
       // BONUS 2 : Filtrage par thème
       let navThemeBtn=document.querySelectorAll(".nav-theme-btn");
@@ -164,7 +182,9 @@ function getData() {
       }
       let filterPopularity=document.getElementById("filter-popularity");
       let filterDefault=document.getElementById("filter-default");
+      let articlesSection=document.querySelector(".articles-section");
       filterDefault.addEventListener("click", function(){
+        
         trierArticlesDefault(articles);
       })
       filterPopularity.addEventListener("click", function(){
@@ -175,3 +195,19 @@ function getData() {
 }
 
 getData();
+function getFoodImage() {
+  fetch(apiURL)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      
+    })
+    .catch((error) => console.error('Erreur lors de la lecture des données :', error));
+}
+
+getFoodImage();

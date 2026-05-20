@@ -235,7 +235,6 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
 .read-btn {
    margin-top: auto;
    margin-bottom:16px;
-   gap:8px;
    display: inline-flex;
    align-items: center;
    justify-content: center;
@@ -290,7 +289,6 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
    flex-wrap: wrap;
 }
 .author-card {
-   flex: 1;
    min-width: 200px;
    max-width: 300px;
    background: var(--bg);
@@ -380,3 +378,14 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
    font-size: .85rem;
 }
 .footer p { color: var(--primary); margin: 0; }
+
+.swiper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
