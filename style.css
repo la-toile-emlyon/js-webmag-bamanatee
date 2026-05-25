@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Great+Vibes&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Mystery+Quest&family=Outfit:wght@100..900&family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Fascinate&family=Great+Vibes&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Mystery+Quest&family=Outfit:wght@100..900&family=Sevillana&display=swap');
 /* ── Variables ── */
 :root {
    --primary:#7758A3;
    --secondary: #aa88dd;
-   --primary-light: #FFAFEB;
-   --accent:        #DB3E8C;
-   --accent-hover:  #66A5ED;
+   --primary-light: #f9d0e4;
+   --accent:        #f654a2;
+   --accent-hover:  #bf3e7c;
    --bg:            #f4f4f5;
    --bg-card:       #ffffff;
    --border:        #e4e4e7;
@@ -26,8 +26,11 @@
    --space-md: 2rem;
    --space-lg: 4rem;
 
-   --font-family: IBM Plex Serif;
+   --font-family: Inter;
    --font-titres: Outfit;
+   --font-h1: Mystery Quest;
+   --image-titre: url(assets/images/chocolate.jpg);
+   --image-navbar: url(assets/images/meringue.jpg);
 }
 
 /* ── Reset & base ── */
@@ -50,7 +53,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ── Typography ── */
 h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.15; letter-spacing: -1px; font-family: var(--font-titres);}
-h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; line-height: 1.25; letter-spacing: -.5px; font-family: var(--font-titres);}
+h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; line-height: 1.25; letter-spacing: -.5px; font-family: var(--font-h1); letter-spacing: 5px;}
 h3 { font-size: 1rem; font-weight: 600; line-height: 1.45; font-family: var(--font-titres);}
 p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family);}
 
@@ -72,7 +75,9 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
 
 /* ── Header ── */
 .header {
-   background: var(--primary);
+   background: var(--image-titre);
+   background-repeat: no-repeat;
+   background-size:cover;
    color: var(--text-white);
    padding: 80px 0 72px;
    text-align: center;
@@ -80,13 +85,17 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
 }
 
 .header h1 { 
-   color: var(--text-white); 
-   margin-bottom: 12px;
+   margin-bottom: 15px;
    text-transform:uppercase;
+   font-family: var(--font-h1);
+   -webkit-text-stroke: 1px var(--accent-hover);
+   letter-spacing: 10px;
+   color: var(--accent);
+   text-shadow: 3px 0px 1px var(--primary-light);
 }
 
 #phrase-accroche {
-   color: rgba(255,255,255,.75);
+   color: var(--bg);
    font-size: 1rem;
    font-weight: 400;
    margin: 0;
@@ -96,7 +105,7 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
 
 /* ── Navbar ── */
 .navbar {
-   background: var(--bg);
+   background: var(--bg-card);
    padding: 12px 0;
    position: sticky;
    top: 0;
@@ -109,10 +118,10 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
    flex-wrap: wrap;
 }
 .nav-theme-btn {
-   background: var(--primary-light);
-   color: var(--primary);
-   border: 1px solid var(--primary);
+   background: var(--bg-card);
+   border: 1px solid var(--accent);
    padding: 6px 16px;
+   box-shadow: 2px 2px 2px var(--primary-light);
    border-radius: 999px;
    cursor: pointer;
    font-family: var(--font-titres);
@@ -122,16 +131,26 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
    letter-spacing: .6px;
    transition: background .15s, color .15s, border-color .15s;
 }
+.nav-theme-btn a{
+   text-decoration:none;
+   color: var(--accent);
+}
 .nav-theme-btn:hover {
-   background: rgba(255,255,255,.1);
-   color: var(--primary);
+   background: var(--accent-hover);
+   border:1px solid var(--bg-card);
+   box-shadow:2px 2px 2px var(--bg-card);
+}
+.nav-theme-btn a:hover{
+   color: var(--bg-card);
 }
 .nav-theme-btn.active {
    background: var(--accent);
    color: var(--text-white);
    border-color: var(--accent);
 }
-
+.nav-theme-btn.active:hover {
+   background: var(--accent-hover);
+}
 /* ── Hero ── */
 .hero { background: var(--bg-card); }
 #article-principal { display: flex; flex-direction: column; }
@@ -201,8 +220,18 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
 }
 
 /* ── Articles section ── */
-.articles-section { padding: var(--space-lg) 0; }
-
+.articles-section { 
+   padding: var(--space-lg) 0; 
+   background:url(assets/images/background.jpg);
+}
+.articles-section .section-title{
+   color:var(--accent);
+   text-shadow: 2px 1px 1px var(--bg-card);
+}
+#button-container{
+   display:flex;
+   gap:16px;
+}
 .articles-grid {
    display: grid;
    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -211,7 +240,6 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
 
 .article-card {
    background: var(--bg-card);
-   border: 1px solid var(--border);
    border-radius: var(--radius-md);
    overflow: hidden;
    display: flex;
@@ -230,7 +258,9 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
    flex-grow: 1;
    gap: 6px;
 }
-.article-content h3 { color: var(--text); }
+.article-content h3 { 
+   color: var(--text); 
+}
 .article-author { font-size: .8rem; color: var(--text-muted); margin: 0; }
 .read-btn {
    margin-top: auto;
@@ -238,7 +268,7 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
    display: inline-flex;
    align-items: center;
    justify-content: center;
-   background: transparent;
+   background: var(--bg-card);
    color: var(--accent);
    border: 1px solid var(--accent);
    padding: 7px 18px;
@@ -263,6 +293,9 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
    display: grid;
    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
    gap: 12px;
+}
+.themes-section h2{
+   text-shadow: 1px 1px var(--bg-card);
 }
 .theme-item {
    background: rgba(255,255,255,.05);
@@ -338,7 +371,6 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
    content: '';
    position: absolute;
    inset: 0;
-   background: radial-gradient(ellipse at 50% 120%, var(--secondary) 0%, transparent 30%);
    pointer-events: none;
 }
 #call-to-action p {
@@ -363,12 +395,38 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
    letter-spacing: .3px;
    transition: background .15s, transform .15s, box-shadow .15s;
 }
+.cta-button a{
+   text-decoration:none;
+   color: var(--text-white);
+}
 .cta-button:hover {
    background: var(--accent-hover);
    transform: translateY(-2px);
    box-shadow: 0 6px 20px rgba(37,99,235,.35);
 }
+.recettes-section {
+   padding: var(--space-lg) 0;
+   background:var(--primary);
+   text-align: center;
+   position: relative;
+   overflow: hidden;
+}
+.recettes-section::before {
+   content: '';
+   position: absolute;
+   inset: 0;
+   pointer-events: none;
+}
+.recettes-section h2{
+   color:var(--accent);
+   text-shadow:1px 1px var(--accent-hover);
+}
 
+.recettes-section .container{
+   display:flex;
+   flex-direction:column;
+   gap:16px;
+}
 /* ── Footer ── */
 .footer {
    background: var(--primary-light);
@@ -379,13 +437,19 @@ p  { color: var(--text-muted); line-height: 1.7; font-family: var(--font-family)
 }
 .footer p { color: var(--primary); margin: 0; }
 
+
 .swiper {
   width: 100%;
   overflow: hidden;
 }
 
 .swiper-slide {
-  display: flex !important;;
+  display: flex !important;
   justify-content: center;
   align-items: center;
 }
+#buttons-authors{
+   width:50%;
+}
+
+

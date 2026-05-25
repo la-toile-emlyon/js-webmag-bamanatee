@@ -4,7 +4,7 @@
     "logo": "assets/images/logo.svg",
     "phraseAccroche": "Le tour du monde des flans, de la tradition à l'innovation",
     "texteAppelAction": "Abonnez-vous pour découvrir les secrets des flans d'ici et d'ailleurs",
-    "articlePrincipal": {
+    "articlePrincipal":{
       "titre": "Flan pâtissier : la recette traditionnelle française",
       "description": "Découvrez la recette classique du flan pâtissier, un dessert incontournable des boulangeries françaises.",
       "date": "20 Mai 2025",

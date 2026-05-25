@@ -7,6 +7,7 @@
    <title>Webmag</title>
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -36,20 +37,22 @@
    </section>
 
    <!-- SECTION ARTICLES -->
-   <section class="articles-section">
+   <section class="articles-section" id="articles-section">
       <div class="container">
          <h2 class="section-title">Derniers Articles</h2>
+         <div data-aos="zoom-out-up">
+            <span id="button-container"></span>
+         </div>
          <div id="articles-grid" class="articles-grid">
          </div>
       </div>
    </section>
 
    <!-- SECTION THEMES -->
-   <section class="themes-section">
+   <section class="themes-section" id="themes-section">
       <div class="container">
          <h2 class="section-title">Nos Thèmes</h2>
-         <div id="themes-list" class="themes-list">
-         </div>
+         <div id="themes-list" class="themes-list"></div>
       </div>
    </section>
 
@@ -58,22 +61,28 @@
       <div class="container">
          <h2 class="section-title">Nos Auteurs</h2>
          <div id="authors-list" class="authors-list">
-            <div class="swiper">
+            <div class="swiper" id="swiper-authors">
                <div class="swiper-wrapper"></div>
                <div class="swiper-pagination"></div>
-               <div class="swiper-button-prev"></div>
-               <div class="swiper-button-next"></div>
+               <div id="buttons-authors">
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+               </div>
             </div>
          </div>
    </section>
-
    <section class="cta-section">
       <div class="container">
          <div id="call-to-action">
          </div>
       </div>
    </section>
-
+   <section class="recettes-section" id="recettes-section">
+      <div class="container">
+         <h2 class="section-title">Nos Autres Recettes</h2>
+         <div id="recettes-list" class="recettes-list"></div>
+      </div>
+   </section>
    <!-- FOOTER -->
    <footer class="footer">
       <div class="container">
@@ -81,6 +90,7 @@
       </div>
    </footer>
    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
    <script src="script.js"></script>
 </body>
 

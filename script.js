@@ -1,4 +1,4 @@
-const apiURL='';
+AOS.init();
 function getData() {
   fetch('data.json')
     .then((response) => {
@@ -24,7 +24,7 @@ function getData() {
 
       // FONCTION POUR CREER LES BOUTONS AUTOMATIQUEMENT
       function creerBoutonTheme(theme){
-        let buttonThemes=`<button class="nav-theme-btn">${theme.nom}</button>`
+        let buttonThemes=`<button class="nav-theme-btn"><a href="#articles-section">${theme.nom}</a></button>`
         themesNav.insertAdjacentHTML("beforeend", buttonThemes);
       };
       // AFFICHAGE
@@ -35,34 +35,39 @@ function getData() {
       });
       // TODO 3: REMPLIR L'ARTICLE PRINCIPAL
       let articlePrincipalHTML=document.getElementById("article-principal");
-      let titre=data.journal.articlePrincipal.titre;
-      let date=data.journal.articlePrincipal.date;
-      let description=data.journal.articlePrincipal.description;
-      let image=data.journal.articlePrincipal.image;
-      let badgeTheme=data.journal.articlePrincipal.theme;
+      let articlePrincipalListe=data.journal.articlePrincipal;
       // AFFICHAGE
-      let articlePrincipal=`
-      <img src="${image}" alt="" id="hero-image">
-      <div class="hero-info">
-        <span class="theme-badge">${badgeTheme}</span>
-        <h1 id="hero-titre">${titre}</h1>
-        <p id="hero-description">${description}</p>
-        <p class="date">${date}</p>
-      </div>
-      `
-      articlePrincipalHTML.insertAdjacentHTML("beforeend", articlePrincipal);
-      
+      function creerArticlePrincipal(article){
+        let titre=article.titre;
+        let date=article.date;
+        let description=article.description;
+        let image=article.image;
+        let badgeTheme=article.theme;
+        let articlePrincipal=`
+        <img src="${image}" alt="" id="hero-image">
+        <div class="hero-info">
+          <span class="theme-badge">${badgeTheme}</span>
+          <h1 id="hero-titre">${titre}</h1>
+          <p id="hero-description">${description}</p>
+          <p class="date">${date}</p>
+        </div>
+        `
+        articlePrincipalHTML.insertAdjacentHTML("beforeend", articlePrincipal);
+      }
+      creerArticlePrincipal(articlePrincipalListe);
       // TODO 4: REMPLIR LA GRILLE D'ARTICLES
       let articles=data.journal.articles;
       function creerArticle(flan){
         let article=`
-        <div class="article-card">
-          <img src="${flan.image}" alt="${flan.titre}">
-          <div class="article-content">
-            <span class="theme-badge">${flan.theme}</span>
-            <h3>${flan.titre}</h3>
-            <h4>Avis: ${flan.popularite}</h4>
-            <p>${flan.date}</p>
+        <div data-aos="fade-up">
+          <div class="article-card">
+            <img src="${flan.image}" alt="${flan.titre}">
+            <div class="article-content">
+              <span class="theme-badge">${flan.theme}</span>
+              <h3>${flan.titre}</h3>
+              <h4>Avis: ${flan.popularite}</h4>
+              <p>${flan.date}</p>
+            </div>
           </div>
         </div>
         `;
@@ -78,9 +83,11 @@ function getData() {
         let nom=theme.nom;
         let description=theme.description;
         let articleTheme=`
-        <div class="theme-item">
-          <h3>${nom}</h3>
-          <p>${description}</p>
+        <div data-aos="flip-up">
+          <div class="theme-item swiper-slide">
+            <h3>${nom}</h3>
+            <p>${description}</p>
+          </div>
         </div>
         `
         themesList.insertAdjacentHTML("beforeend", articleTheme);
@@ -89,17 +96,20 @@ function getData() {
       themes.forEach(theme => {
         afficherThemes(theme);
       });
+      
       // TODO 6: REMPLIR LES AUTEURS
       let swiperWrapper=document.querySelector(".swiper-wrapper");
       let auteurs=data.journal.auteurs;
       function afficherAuteurs(auteur){
         let carteAuteur=`
         <div class="swiper-slide">
-          <div class="author-card">
-            <img src="${auteur.photo}" alt="Présentation de ${auteur.prenom}, ${auteur.presentation}" class="author-image">
-            <h3>${auteur.prenom}</h3>
-            <h3 class="author-role">${auteur.typeExperience}</h3>
-            <p class="author-bio">${auteur.presentation}</p>
+          <div data-aos="fade-left">
+            <div class="author-card">
+              <img src="${auteur.photo}" alt="Présentation de ${auteur.prenom}, ${auteur.presentation}" class="author-image">
+              <h3>${auteur.prenom}</h3>
+              <h3 class="author-role">${auteur.typeExperience}</h3>
+              <p class="author-bio">${auteur.presentation}</p>
+            </div>
           </div>
         </div>
         `
@@ -118,8 +128,8 @@ function getData() {
         },
         // Navigation arrows
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: '#swiper-authors .swiper-button-next',
+          prevEl: '#swiper-authors .swiper-button-prev',
         },
       });
       
@@ -128,7 +138,8 @@ function getData() {
       let callToActionText=data.journal.texteAppelAction;
       let AppelAAction=`
       <p>${callToActionText}</p>
-      <button class="cta-button">S'abonner</button>
+      <button id="subscribe-button" class="cta-button">S'abonner</button>
+      <button id="discover-button" class="cta-button"><a href="#recettes-section">Nos autres desserts</a></button>
       `
       callToAction.insertAdjacentHTML("beforeend", AppelAAction);
       /// FIN DU CODE
@@ -162,8 +173,9 @@ function getData() {
       // DECLARATION + AFFICHAGE DES BOUTONS
       let buttonFilterDefault=`<button class="read-btn" id="filter-default">Par défaut</button>`;
       let buttonFilterPopularity=`<button class="read-btn" id="filter-popularity">Par popularité</button>`;
-      articlesGrid.insertAdjacentHTML("beforebegin", buttonFilterDefault);
-      articlesGrid.insertAdjacentHTML("beforebegin", buttonFilterPopularity);
+      let buttonContainer=document.getElementById("button-container");
+      buttonContainer.insertAdjacentHTML("afterbegin", buttonFilterDefault);
+      buttonContainer.insertAdjacentHTML("afterbegin", buttonFilterPopularity);
       // FONCTIONS PAR DEFAUT ET PAR POPULARITE
       // TABLEAU RECENSANT LETAT INITIAL DE JOURNAL.ARTICLES
       let articlesOriginaux=articles.slice(); 
@@ -195,7 +207,9 @@ function getData() {
 }
 
 getData();
-function getFoodImage() {
+
+const apiURL='https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert';
+function showDessert() {
   fetch(apiURL)
     .then((response) => {
       if (!response.ok) {
@@ -205,9 +219,30 @@ function getFoodImage() {
     })
     .then((data) => {
       console.log(data);
-      
+      let desserts=data.meals;
+      let discoverButton=document.getElementById("discover-button");
+      let recettesList=document.getElementById("recettes-list");
+      function afficherDesserts(dessert){
+        let article = `
+        <div data-aos="fade-up">
+          <div class="article-card">
+            <img src="${dessert.strMealThumb}" alt="${dessert.strMeal}">
+            <div class="article-content">
+              <h3>${dessert.strMeal}</h3>
+              <p>${dessert.strCountry}</p>
+            </div>
+          </div>
+        </div>
+        `;
+        recettesList.insertAdjacentHTML("beforeend", article);
+      }
+      discoverButton.addEventListener("click", function(){
+        desserts.slice(0,19).forEach(element => {
+          afficherDesserts(element);
+        });
+      })    
     })
     .catch((error) => console.error('Erreur lors de la lecture des données :', error));
 }
 
-getFoodImage();
+showDessert();
