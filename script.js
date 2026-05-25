@@ -103,13 +103,11 @@ function getData() {
       function afficherAuteurs(auteur){
         let carteAuteur=`
         <div class="swiper-slide">
-          <div data-aos="fade-left">
-            <div class="author-card">
-              <img src="${auteur.photo}" alt="Présentation de ${auteur.prenom}, ${auteur.presentation}" class="author-image">
-              <h3>${auteur.prenom}</h3>
-              <h3 class="author-role">${auteur.typeExperience}</h3>
-              <p class="author-bio">${auteur.presentation}</p>
-            </div>
+          <div data-aos="fade-left" class="author-card">
+            <img src="${auteur.photo}" alt="Présentation de ${auteur.prenom}, ${auteur.presentation}" class="author-image">
+            <h3>${auteur.prenom}</h3>
+            <h3 class="author-role">${auteur.typeExperience}</h3>
+            <p class="author-bio">${auteur.presentation}</p>
           </div>
         </div>
         `
@@ -221,22 +219,30 @@ function showDessert() {
       console.log(data);
       let desserts=data.meals;
       let discoverButton=document.getElementById("discover-button");
-      let recettesList=document.getElementById("recettes-list");
+      let footer=document.querySelector(".footer");
+      let sectionRecettes=`
+      <section class="recettes-section" id="recettes-section">
+        <div class="container">
+         <h2 class="section-title">Nos Autres Recettes</h2>
+         <div id="recettes-list" class="recettes-list articles-grid"></div>
+        </div>
+      </section>
+      `
       function afficherDesserts(dessert){
         let article = `
-        <div data-aos="fade-up">
-          <div class="article-card">
-            <img src="${dessert.strMealThumb}" alt="${dessert.strMeal}">
-            <div class="article-content">
-              <h3>${dessert.strMeal}</h3>
-              <p>${dessert.strCountry}</p>
-            </div>
+        <div class="article-card" data-aos="fade-up">
+          <img src="${dessert.strMealThumb}" alt="${dessert.strMeal}">
+          <div class="article-content">
+            <h3>${dessert.strMeal}</h3>
+            <p>${dessert.strCountry}</p>
           </div>
         </div>
         `;
+        let recettesList=document.getElementById("recettes-list");
         recettesList.insertAdjacentHTML("beforeend", article);
       }
       discoverButton.addEventListener("click", function(){
+        footer.insertAdjacentHTML("beforebegin",sectionRecettes);
         desserts.slice(0,19).forEach(element => {
           afficherDesserts(element);
         });
